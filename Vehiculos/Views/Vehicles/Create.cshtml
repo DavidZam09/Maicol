@@ -1,0 +1,83 @@
+﻿@model Vehiculos.Models.Vehicle.Vehicles
+
+@{
+    ViewData["Title"] = "Crear";
+}
+
+<h1 class="text-center">Crear Vehículo</h1>
+
+<div class="card shadow p-4">
+    <h4 class="text-primary">Detalles del Vehículo</h4>
+    <hr />
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Model" class="form-label fw-bold">Modelo</label>
+                        <input asp-for="Model" class="form-control" />
+                        <span asp-validation-for="Model" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Brand" class="form-label fw-bold">Marca</label>
+                        <input asp-for="Brand" class="form-control" />
+                        <span asp-validation-for="Brand" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="EngineCapacity" class="form-label fw-bold">Cilindraje</label>
+                        <input asp-for="EngineCapacity" class="form-control" />
+                        <span asp-validation-for="EngineCapacity" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Type" class="form-label fw-bold">Tipo</label>
+                        <input asp-for="Type" class="form-control" />
+                        <span asp-validation-for="Type" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Color" class="form-label fw-bold">Color</label>
+                        <input asp-for="Color" class="form-control" />
+                        <span asp-validation-for="Color" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Price" class="form-label fw-bold">Precio</label>
+                        <input asp-for="Price" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="OwnerId" class="form-label fw-bold">Propietario:</label>
+                        <select asp-for="OwnerId" class="form-control" asp-items="ViewBag.Owners">
+                            <option value="">Seleccione un propietario</option>
+                        </select>
+                        <span asp-validation-for="OwnerId" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Year" class="form-label fw-bold">Año</label>
+                        <input asp-for="Year" class="form-control" />
+                        <span asp-validation-for="Year" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Plate" class="form-label fw-bold">Placa</label>
+                        <input asp-for="Plate" class="form-control" />
+                        <span asp-validation-for="Plate" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Status" class="form-label fw-bold">Estado</label>
+                        <input asp-for="Status" class="form-control" />
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Crear</button>
+                    <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
